@@ -40,7 +40,7 @@ With epicchain-tools in place, one has easy lookup of various operations and fun
 
 ## Project Version and Status
 
-V1 project board https://github.com/CityOfZion/epicchain-tools/projects/1
+V1 project board https://github.com/epicchainlabs/epicchain-tools/projects/1
 
 Version: 0.64.0
 
@@ -256,7 +256,7 @@ I apologize if the command-line arguments and capabilities aren't consistent acr
 
 ## Setup
 
-`git clone https://github.com/CityOfZion/epicchain-tools.git .`
+`git clone https://github.com/epicchainlabs/epicchain-tools.git .`
 
 `npm install`
 ,
