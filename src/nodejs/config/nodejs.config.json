@@ -1,0 +1,25 @@
+{
+  "accounts": {
+    "default": {
+      "default": true,
+      "path": "/home/uv/fwd//configs/neotools.config.json"
+    },
+    "account_name2": {
+      "address": "",
+      "default": false,
+      "path": ""
+    }
+  },
+  "exchanges": {
+    "path": "/home/uv/fwd//configs/neotools.config.json"
+  },
+  "smtp": {
+    "path": "/home/uv/fwd//configs/neotools.config.json"
+  },
+  "nodes": {
+    "path": "/home/uv/fwd//configs/neotools.config.json"
+  },
+  "neojs": {
+    "path": "/home/uv/fwd//configs/neotools.config.json"
+  }
+}
