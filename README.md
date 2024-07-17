@@ -10,18 +10,18 @@
 - [Developer's Note](#developers-note)
 - [Roadmap](#roadmap)
 - [Setup](#setup)
-- [neo-tools APIs](#neo-tools-apis)
+- [epicchain-tools APIs](#epicchain-tools-apis)
 - [Configuration](#configuration)
 - [All-in-One Configuration File Example](#all-in-one-configuration-file-example)
 - [Calling Conventions](#calling-conventions)
 - [Accounts](#accounts)
 - [rpc-over-https](#rpc-over-https)
-- [neo-js](#neo-js)
-- [neon-js](#neon-js)
-- [Neoscan for TestNet and MainNet](#neoscan-for-testnet-and-mainnet)
+- [epicchain-js](#epicchain-js)
+- [epicchain-js](#epicchain-js)
+- [explorer for TestNet and MainNet](#explorer-for-testnet-and-mainnet)
 - [Exchange and Market APIs](#exchange-and-market-apis)
 - [crypto](#crypto)
-- [Neo Status](#neo-status)
+- [epicchain Status](#epicchain-status)
 - [CLI Chaining Examples](#cli-chaining-examples)
 - [Shell Script Example](#shell-script-example)
 - [Monitoring, Alerts and Notifications](#monitoring-alerts-and-notifications)
@@ -29,18 +29,18 @@
 
 <!-- /TOC -->
 
-# neo-tools
+# epicchain-tools
 
 ## Summary
 
-The goal is to have all Neo Smart Economy APIs or project implementation primitives as a part of a Unix-style Command Line Interface (CLI) chainable toolset.
+The goal is to have all epicchain Smart Economy APIs or project implementation primitives as a part of a Unix-style Command Line Interface (CLI) chainable toolset.
 
-With neo-tools in place, one has easy lookup of various operations and functions, reference implementation, clear calling syntax, and usage examples.
+With epicchain-tools in place, one has easy lookup of various operations and functions, reference implementation, clear calling syntax, and usage examples.
 
 
 ## Project Version and Status
 
-V1 project board https://github.com/CityOfZion/neo-tools/projects/1
+V1 project board https://github.com/CityOfZion/epicchain-tools/projects/1
 
 Version: 0.64.0
 
@@ -55,11 +55,11 @@ Next: Database, Wallet, Server, Node
 
 This project has three major goals:
 
-1. Provide a command line tool for each Neo Smart Economy system function primitive. In example,
+1. Provide a command line tool for each epicchain Smart Economy system function primitive. In example,
 each function useful for an account, a wallet, a transaction, etc should be contained in its own module with
 the ability to call it directly from the command line, by itself, and retrieve a result. Each CLI invocation should enable stdio behavior so commands may be chained together to form command line scripts.
 
-2. Provide simple and clear examples of each Neo Smart Economy system function primitive to offer reusable, standard reference implementations for each language or API. This will accelerate community understanding and implementation adoption.
+2. Provide simple and clear examples of each epicchain Smart Economy system function primitive to offer reusable, standard reference implementations for each language or API. This will accelerate community understanding and implementation adoption.
 
 3. Get up and running quickly and easily.
 
@@ -109,7 +109,7 @@ See src/nodejs/ for the following:
 * Default address support via accounts config in src/nodejs/nodejs.config.json
 
 
-* Dynamic RPC invocation from CLI with nodejs/rpc-over-https/NEO_v2.9.0/client/cli/query.js
+* Dynamic RPC invocation from CLI with nodejs/rpc-over-https/epicchain_v2.9.0/client/cli/query.js
   * Automatically select nodes
   * Get nodes by configurable sort factor
   * GetNodesByX
@@ -118,12 +118,12 @@ See src/nodejs/ for the following:
     * ping - list queried nodes by ping
     * tallest - list queried nodes by block height
     * connection - list queried nodes by number of connections
-    * version - list queried nodes by Neo version
+    * version - list queried nodes by epicchain version
     * rawmempool - list queried nodes by the size of raw memory pool
 
 
-* neo-js integration
-  * [neo-js on GitHub](https://github.com/cityofzion/neo-js)
+* epicchain-js integration
+  * [epicchain-js on GitHub](https://github.com/cityofzion/epicchain-js)
   * MainNet sync
   * TestNet sync
   * mongodb support
@@ -134,7 +134,7 @@ See src/nodejs/ for the following:
   * getExchanges()
   * getSmtp()
   * getNodes()
-  * getNeoJs()
+  * getepicchainJs()
 
 
 * Alerts (Notifications)
@@ -154,9 +154,9 @@ See src/nodejs/ for the following:
   * NEP-6 coming soon!
 
 
-* Neoscan API
+* explorer API
   - [EpicChain Explorer on GitHub](https://github.com/epicchainlabs/explorer)
-  - command line is functional (see neoscan calling convention below)
+  - command line is functional (see explorer calling convention below)
   - get_address_abstracts, now with JSON and CSV export option
   - get_all_nodes
   - get_balance
@@ -198,23 +198,23 @@ See src/nodejs/ for the following:
   * shacli support added for SHA256 and HMAC SHA256
 
 
-* neon-js
-  * [neon-js on GitHub](https://github.com/cityofzion/neon-js)
+* epicchain-js
+  * [epicchain-js on GitHub](https://github.com/cityofzion/epicchain-js)
   * RPC Implementation
-    * neon-js/native/cli/rpc/query.js - dynamic query construction
-    * neon-js/native/cli/rpc/getConnectionCount.js - Gets the current number of connections for the node
-    * neon-js/native/cli/rpc/getPeers.js - Gets a list of nodes that are currently connected/disconnected/bad by this node
-    * neon-js/native/cli/rpc/getRawMemPool - Gets a list of unconfirmed transactions in memory
-    * neon-js/native/cli/rpc/getVersion - Gets version information of this node
-    * neon-js/native/cli/rpc/validateAddress - Verify that the address is a correct NEO address
-    * neon-js/native/cli/rpc/getBestBlockHash - Get the hash of the tallest block
-    * neon-js/native/cli/rpc/getBlockCount - Get the number of blocks in the chain
-    * neon-js/native/cli/rpc/getBlock - Get the block by number or hash or most recent
-    * neon-js/native/cli/rpc/getAccountState - Get the account stat for an address
-    * neon-js/native/cli/rpc/getRawTransaction - Get a transaction by hash or block
+    * epicchain-js/native/cli/rpc/query.js - dynamic query construction
+    * epicchain-js/native/cli/rpc/getConnectionCount.js - Gets the current number of connections for the node
+    * epicchain-js/native/cli/rpc/getPeers.js - Gets a list of nodes that are currently connected/disconnected/bad by this node
+    * epicchain-js/native/cli/rpc/getRawMemPool - Gets a list of unconfirmed transactions in memory
+    * epicchain-js/native/cli/rpc/getVersion - Gets version information of this node
+    * epicchain-js/native/cli/rpc/validateAddress - Verify that the address is a correct epicchain address
+    * epicchain-js/native/cli/rpc/getBestBlockHash - Get the hash of the tallest block
+    * epicchain-js/native/cli/rpc/getBlockCount - Get the number of blocks in the chain
+    * epicchain-js/native/cli/rpc/getBlock - Get the block by number or hash or most recent
+    * epicchain-js/native/cli/rpc/getAccountState - Get the account stat for an address
+    * epicchain-js/native/cli/rpc/getRawTransaction - Get a transaction by hash or block
 
 
-* Neo Status - Performs health checks on Neo Network - See sectoin "Neo Status" Below
+* epicchain Status - Performs health checks on epicchain Network - See sectoin "epicchain Status" Below
   * Vitals included:
     * version
     * peers
@@ -232,7 +232,7 @@ See src/nodejs/ for the following:
 ## Todo
 
 * Automatically generate documentation from online CLI -h --help feature
-* neo-js Implementation Improvements
+* epicchain-js Implementation Improvements
   - Add mongodb database name configuration
   - Review automation and process control of chainSync.js
   - Review configuration draft
@@ -245,7 +245,7 @@ I apologize if the command-line arguments and capabilities aren't consistent acr
 
 ## Roadmap
 
-* Create versions for each programming language that supports Neo, i.e.:
+* Create versions for each programming language that supports epicchain, i.e.:
   - Python
   - C#
   - golang
@@ -256,14 +256,14 @@ I apologize if the command-line arguments and capabilities aren't consistent acr
 
 ## Setup
 
-`git clone https://github.com/CityOfZion/neo-tools.git .`
+`git clone https://github.com/CityOfZion/epicchain-tools.git .`
 
 `npm install`
 ,
 
-## neo-tools APIs
+## epicchain-tools APIs
 
-For now there is no official API, but features are still available. neo-tools has been designed to make the modules reusable, generally with the CLI versions demonstrating use on each feature of the model.
+For now there is no official API, but features are still available. epicchain-tools has been designed to make the modules reusable, generally with the CLI versions demonstrating use on each feature of the model.
 To leverage any module for a specific language, simple enter the ```src``` folder for that language and locate the folder/folder.js file for the relevant feature. For example, to use the Node.js config module
 require src/nodejs/config/config.js.
 
@@ -307,7 +307,7 @@ The path item of each config entry points to a json config file that adheres to 
 {
   "accounts": {
     "one": {
-      "type": "neo",
+      "type": "epicchain",
       "name": "",
       "address": "",
       "default": true,
@@ -315,7 +315,7 @@ The path item of each config entry points to a json config file that adheres to 
       "watch": false
     },
     "two": {
-      "type": "neo",
+      "type": "epicchain",
       "name": "",
       "address": "",
       "default": true,
@@ -323,7 +323,7 @@ The path item of each config entry points to a json config file that adheres to 
       "watch": false
     },
     "three": {
-      "type": "neo",
+      "type": "epicchain",
       "name": "",
       "address": "",
       "default": true,
@@ -396,8 +396,8 @@ node account/cli/decryptNep2.js -n test
 
 
 #### rpc-over-https
-Implementation of various Neo: v2.9.0 RPC utilities, some running against neon-js.
-See: [Neo: v2.9.0](http://docs.neo.org/en-us/node/cli/2.9.0/api.html) for /Neo:v2.9.0/ API calls (valid -m --method options)
+Implementation of various epicchain: v2.9.0 RPC utilities, some running against epicchain-js.
+See: [epicchain: v2.9.0](http://docs.epicchain.org/en-us/node/cli/2.9.0/api.html) for /epicchain:v2.9.0/ API calls (valid -m --method options)
 
 NOTE: This module can generate a lot of traffic. Please make sure you understand and use with care.
 
@@ -412,7 +412,7 @@ node rpc-over-https/v2.9.0/client/cli/getNodesBy.js -m tallest
 
 # Use the node returned from getNodesBy to query the version for that RPC node.
 # The following example is the RECOMMENDED method (query a specific node for repetitious operations)
-# See: http://docs.neo.org/en-us/node/cli/2.9.0/api.html for /Neo:v2.9.0/ API calls (valid -m --method options)
+# See: http://docs.epicchain.org/en-us/node/cli/2.9.0/api.html for /epicchain:v2.9.0/ API calls (valid -m --method options)
 
 node rpc-over-https/v2.9.0/client/cli/query -m getversion -n 'https://test1.cityofzion.io'
 
@@ -420,45 +420,45 @@ node rpc-over-https/v2.9.0/client/cli/query -m getversion -n 'https://test1.city
 ```
 
 
-#### neo-js
-[neo-js on GitHub](https://github.com/cityofzion/neo-js)
+#### epicchain-js
+[epicchain-js on GitHub](https://github.com/cityofzion/epicchain-js)
 
-Implementation of neo-js synchronization features for local chain capabilities.
+Implementation of epicchain-js synchronization features for local chain capabilities.
 
 NOTE: This code is ALPHA. Use with care as it can generate a lot of traffic.
 
 ```
-cd src/nodejs/neo-js/
+cd src/nodejs/epicchain-js/
 
 # Sync blocks from TestNet into a localhost mongodb instance
-node neo-js/cli/chainSync.js
+node epicchain-js/cli/chainSync.js
 
 
 ```
 
 
-#### neon-js
-[neon-js on GitHub](https://github.com/cityofzion/neon-js)
-Uses neon-js 4.6.0
+#### epicchain-js
+[epicchain-js on GitHub](https://github.com/cityofzion/epicchain-js)
+Uses epicchain-js 4.6.0
 
-Here you'll find a CLI frontend for every RPC query method implemented by neon-js. Documentation is still in progress. When in doubt, run the command with --help argument.
+Here you'll find a CLI frontend for every RPC query method implemented by epicchain-js. Documentation is still in progress. When in doubt, run the command with --help argument.
 
 ```
-cd src/nodejs/neon-js/native/cli/rpc/
+cd src/nodejs/epicchain-js/native/cli/rpc/
 
 query -h
 
 
-* neon-js/native/cli/rpc/getConnectionCount.js - Gets the current number of connections for the node
-* neon-js/native/cli/rpc/getPeers.js - Gets a list of nodes that are currently connected/disconnected/bad by this node
-* neon-js/native/cli/rpc/getRawMemPool - Gets a list of unconfirmed transactions in memory
-* neon-js/native/cli/rpc/getVersion - Gets version information of this node
-* neon-js/native/cli/rpc/validateAddress - Verify that the address is a correct NEO address
-* neon-js/native/cli/rpc/getBestBlockHash - Get the hash of the tallest block
-* neon-js/native/cli/rpc/getBlockCount - Get the number of blocks in the chain
-* neon-js/native/cli/rpc/getBlock - Get the block by number or hash or most recent
-* neon-js/native/cli/rpc/getAccountState - Get the account stat for an address
-* neon-js/native/cli/rpc/getRawTransaction - Get a transaction by hash or block
+* epicchain-js/native/cli/rpc/getConnectionCount.js - Gets the current number of connections for the node
+* epicchain-js/native/cli/rpc/getPeers.js - Gets a list of nodes that are currently connected/disconnected/bad by this node
+* epicchain-js/native/cli/rpc/getRawMemPool - Gets a list of unconfirmed transactions in memory
+* epicchain-js/native/cli/rpc/getVersion - Gets version information of this node
+* epicchain-js/native/cli/rpc/validateAddress - Verify that the address is a correct epicchain address
+* epicchain-js/native/cli/rpc/getBestBlockHash - Get the hash of the tallest block
+* epicchain-js/native/cli/rpc/getBlockCount - Get the number of blocks in the chain
+* epicchain-js/native/cli/rpc/getBlock - Get the block by number or hash or most recent
+* epicchain-js/native/cli/rpc/getAccountState - Get the account stat for an address
+* epicchain-js/native/cli/rpc/getRawTransaction - Get a transaction by hash or block
 
 ```
 
@@ -468,13 +468,13 @@ query -h
 
 
 ```
-cd src/nodejs/neoscan/cli/
+cd src/nodejs/explorer/cli/
 
 # Returns page 1 of transaction summary for default address from its hash, paginated
 node get_address_abstracts -n main -p 1
 
 # Get all transactions for default address on default net (test) and export to csv
-node neoscan/cli/get_address_abstracts.js --everything -c
+node explorer/cli/get_address_abstracts.js --everything -c
 
 # List all nodes on Main Net
 node get_all_nodes -n MainNet
@@ -494,10 +494,10 @@ node get_claimed
 # Get current block height on TestNet
 node get_height
 
-# Get the latest block data from neoscan Main Net
+# Get the latest block data from explorer Main Net
 node get_last_block -n mainnet
 
-# Get the latest block time from neoscan Main Net
+# Get the latest block time from explorer Main Net
 node get_last_block_time -n mainnet
 
 # List all transactions for address on Main net
@@ -525,21 +525,21 @@ https://github.com/binance-exchange/binance-official-api-docs/blob/master/rest-a
 cd src/nodejs/
 
 
-# List the price of neo and total net worth for 10 shares by coinmarketcap valuation.
+# List the price of epicchain and total net worth for 10 shares by coinmarketcap valuation.
 # Note: in this version you cannot list all symbols for cmc as you can with binance
-node getMarketValue -s neo -a 10
+node getMarketValue -s epicchain -a 10
 
 
-# list the price of neousdt and total net worth for 3 shares by binance valuation
+# list the price of epicchainusdt and total net worth for 3 shares by binance valuation
 # ticker names found at https://api.binance.com/api/v3/ticker/price
 # weight 1 for binance
 
-node getMarketValue -s neousdt -a 3 -x binance
+node getMarketValue -s epicchainusdt -a 3 -x binance
 
 
-# list the price of all symbols that have "NEO" in the name and multiply their value by 2
+# list the price of all symbols that have "epicchain" in the name and multiply their value by 2
 
-node getMarketValue.js -a 2 -x binance | grep NEO -A 1
+node getMarketValue.js -a 2 -x binance | grep epicchain -A 1
 
 
 # list the price of all symbols on binance times 2 units
@@ -555,21 +555,21 @@ cd src/nodejs/exchange/binance/cli/
 node get_all_symbols.js -a 2
 
 
-# list the price of all symbols that have "NEO" in the name and multiply their value by 2
+# list the price of all symbols that have "epicchain" in the name and multiply their value by 2
 # weight 1
-node get_all_symbols.js -a 2 | grep NEO -A 1
+node get_all_symbols.js -a 2 | grep epicchain -A 1
 
 
 # list the best prices on the book at binance
 # weight 1
 
-node get_book -s neousdt
+node get_book -s epicchainusdt
 
 
-# list the asset details (requires API key and secret) for NEO (or all no -s NEO)
+# list the asset details (requires API key and secret) for epicchain (or all no -s epicchain)
 # weight 1
 
-node get_asset_detail -s NEO
+node get_asset_detail -s epicchain
 
 
 # Test connectivity and get the exchange server time. It's up to the caller to convert to something other than milliseconds
@@ -597,13 +597,13 @@ node shacli.js --message 'test'
 ```
 
 
-### Neo Status
+### epicchain Status
 ```
 cd src/nodejs/
 
 # Generate a report of vitals for mainnet and testnet
-node neostatus/network_health.js -n mainnet --summary > network_health_mainnet.txt
-node neostatus/network_health.js -n testnet --summary > network_health_testnet.txt
+node epicchainstatus/network_health.js -n mainnet --summary > network_health_mainnet.txt
+node epicchainstatus/network_health.js -n testnet --summary > network_health_testnet.txt
 
 ```
 
@@ -617,7 +617,7 @@ cd src/nodejs/
 
 # List all balances for all accounts
 # -r / --readstdin indicates to read stdin as json
-node account/cli/list.js | node neoscan/cli/get_balance.js -r
+node account/cli/list.js | node explorer/cli/get_balance.js -r
 
 
 ```
@@ -628,18 +628,18 @@ The following shell script will loop a number of cli modules to monitor.
 ```
 #!/bin/bash
 
-loc="/home/fet/nwd/phetter/neotools/src/nodejs/"
+loc="/home/fet/nwd/phetter/epicchaintools/src/nodejs/"
 
 while true;
   do
-    node ${loc}neoscan/cli/get_balance.js -a insert_address -n mainnet;
-    node ${loc}neoscan/cli/get_balance.js -n mainnet -a insert_address;
-    node ${loc}neoscan/cli/get_balance.js -n mainnet -a insert_address;
-    node ${loc}neoscan/cli/get_last_block_time.js -n mainnet;
-    node ${loc}exchange/binance/cli/get_asset_detail.js -s neo;
+    node ${loc}explorer/cli/get_balance.js -a insert_address -n mainnet;
+    node ${loc}explorer/cli/get_balance.js -n mainnet -a insert_address;
+    node ${loc}explorer/cli/get_balance.js -n mainnet -a insert_address;
+    node ${loc}explorer/cli/get_last_block_time.js -n mainnet;
+    node ${loc}exchange/binance/cli/get_asset_detail.js -s epicchain;
 
     echo -e "\n";
-    node ${loc}getMarketValue.js -s neo -a 1 -d -x binance;
+    node ${loc}getMarketValue.js -s epicchain -a 1 -d -x binance;
     echo -e "";
     node ${loc}getMarketValue.js -s gas -a 1;
     echo -e "\n";
@@ -681,13 +681,13 @@ node new_transaction_alert_loop.js -N main -y 7
 ## Planned Future Calling Convention
 
 ```
-neotools <registered API or implementation name> <relevant function> <function arguments>
+epicchaintools <registered API or implementation name> <relevant function> <function arguments>
 ```
 
 Example:
 
 ```
-neotools neonjs getScriptHashFromAddress AddZkjqPoPyhDhWoA8f9CXQeHQRDr8HbPo
+epicchaintools epicchainjs getScriptHashFromAddress AddZkjqPoPyhDhWoA8f9CXQeHQRDr8HbPo
 
 
 
